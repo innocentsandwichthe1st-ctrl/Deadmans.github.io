@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Anime Opinion</title>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<link rel="icon" type="image/png" href="data:image/png;base64,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kvVnZo8Cmsa46tzb9EX2VWduWzu42HUdXebdRyz2ereZuONvF0Djzc12OoZyQerBx2LutlW2q31NFDatXz/BayNoYytdzjmH+f8ABd39R7lM1HVUtbTsqKSohqIJBlskTw5rh3Ecipqai21mBKmratviuaImKu40qZuqnZ9HyZQ5dDojSF71ddYqK10kjoy8CWoc09HC3tLndXV2dZVwJ9Nacnn6eewWqWXOeN9HGXZ8SFsoYoaaFsUMccMTBhrWNDWtHgFGRdGMV5kkyvBEhL0izTiOjb4sxbBbKay2SitNG3hgpIWxM9ZAGMnvPWoa3rb8xlttmm4njpJZPhcwB5hrQWtB8SXH6q7DaBta0zpmnlhpaqK63Meiynp3hzWu/wA7hyAHq5nuVXNSXq4ahvdTeLnL0tVUv4nEdTR1BoHYAMALdrmpRUQO2ieW9mzgjVo9hLXN8RKsJbdvFmuREVLLaF7w1dXCzghqp42/gskIH6l4IsptbjDSe8/Uskkry+V7nvPW5xySvyiLBkyGVtaxgjZV1DWAYDRIQAsc8zkoiy22YSSPoJBBBwR1Fe766uewsfWVDmkYIMriD+tY6Im1uDSZ9aS1wc0kEHII7FkOr65zS11bUkHkQZXfxWMiJtbg0nvCIiwZC9YKiogz0E8sWevgeW59i8kRPAxk9Z6iecgzzySkdXG8ux7V5IiN5GMBZVBcrjQO4qGvqqU+uGVzP2FYqLKbTyjDSawzft1rrBreFuqb2B6hXSfxWFX36+V7S2uvFwqmnrEtS94PtK1qL25pKlh1P5nhRRp5VK+QREWs2BERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAf/Z">
+<link rel="apple-touch-icon" href="data:image/png;base64,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kvVnZo8Cmsa46tzb9EX2VWduWzu42HUdXebdRyz2ereZuONvF0Djzc12OoZyQerBx2LutlW2q31NFDatXz/BayNoYytdzjmH+f8ABd39R7lM1HVUtbTsqKSohqIJBlskTw5rh3Ecipqai21mBKmratviuaImKu40qZuqnZ9HyZQ5dDojSF71ddYqK10kjoy8CWoc09HC3tLndXV2dZVwJ9Nacnn6eewWqWXOeN9HGXZ8SFsoYoaaFsUMccMTBhrWNDWtHgFGRdGMV5kkyvBEhL0izTiOjb4sxbBbKay2SitNG3hgpIWxM9ZAGMnvPWoa3rb8xlttmm4njpJZPhcwB5hrQWtB8SXH6q7DaBta0zpmnlhpaqK63Meiynp3hzWu/wA7hyAHq5nuVXNSXq4ahvdTeLnL0tVUv4nEdTR1BoHYAMALdrmpRUQO2ieW9mzgjVo9hLXN8RKsJbdvFmuREVLLaF7w1dXCzghqp42/gskIH6l4IsptbjDSe8/Uskkry+V7nvPW5xySvyiLBkyGVtaxgjZV1DWAYDRIQAsc8zkoiy22YSSPoJBBBwR1Fe766uewsfWVDmkYIMriD+tY6Im1uDSZ9aS1wc0kEHII7FkOr65zS11bUkHkQZXfxWMiJtbg0nvCIiwZC9YKiogz0E8sWevgeW59i8kRPAxk9Z6iecgzzySkdXG8ux7V5IiN5GMBZVBcrjQO4qGvqqU+uGVzP2FYqLKbTyjDSawzft1rrBreFuqb2B6hXSfxWFX36+V7S2uvFwqmnrEtS94PtK1qL25pKlh1P5nhRRp5VK+QREWs2BERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAf/Z">
+<style>
+:root{
+  --bg:#080810;
+  --surface:#0f0f1a;
+  --surface2:#141422;
+  --border:#1e1e32;
+  --border2:#252540;
+  --accent:#a78bfa;
+  --accent-dim:#4c3d8f;
+  --accent-glow:rgba(167,139,250,0.15);
+  --gold:#f59e0b;
+  --gold-dim:#78450a;
+  --text:#e2e2f0;
+  --text-muted:#5a5a80;
+  --text-dim:#3a3a58;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);font-family:'DM Sans',system-ui,sans-serif;color:var(--text);min-height:100vh;}
+
+/* subtle noise grain overlay */
+body::before{
+  content:'';
+  position:fixed;inset:0;z-index:0;pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+  opacity:0.03;
+}
+
+/* HERO */
+.hero{
+  position:relative;width:100%;height:320px;overflow:hidden;
+  display:flex;align-items:flex-end;
+  background:var(--bg);
+}
+/* animated gradient mesh */
+.hero-bg{
+  position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 80% 60% at 20% 50%, rgba(88,28,220,0.28) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 80% at 80% 20%, rgba(245,158,11,0.12) 0%, transparent 55%),
+    radial-gradient(ellipse 50% 50% at 60% 80%, rgba(139,92,246,0.18) 0%, transparent 50%);
+  animation:heroShift 12s ease-in-out infinite alternate;
+}
+@keyframes heroShift{
+  0%{background-position:0% 50%,100% 0%,50% 100%;}
+  100%{background-position:30% 70%,80% 30%,60% 60%;}
+}
+.hero-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(to bottom, transparent 30%, rgba(8,8,16,0.6) 70%, var(--bg) 100%);
+}
+/* decorative horizontal line */
+.hero::after{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(167,139,250,0.4),transparent);
+}
+.hero-text{position:relative;z-index:1;padding:0 28px 32px;}
+.hero-eyebrow{
+  font-size:10px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--accent);margin-bottom:10px;opacity:0.8;
+}
+.hero-title{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:64px;line-height:0.95;color:#fff;letter-spacing:2px;
+  text-shadow:0 0 60px rgba(139,92,246,0.4),0 4px 30px rgba(0,0,0,0.9);
+}
+.hero-sub{font-size:12px;color:var(--text-muted);margin-top:10px;font-weight:400;letter-spacing:.02em;}
+
+/* BODY */
+.body{padding:0 20px 80px;max-width:1200px;margin:0 auto;position:relative;z-index:1;}
+
+/* FILTERS ROW */
+.filters-row{display:flex;align-items:flex-start;gap:8px;flex-wrap:wrap;padding:22px 0 4px;}
+.filters{display:flex;flex-wrap:wrap;gap:6px;}
+
+.pill{
+  padding:5px 15px;border-radius:999px;font-size:11px;font-weight:500;
+  cursor:pointer;border:1px solid var(--border2);background:var(--surface);
+  color:var(--text-muted);transition:all .2s;user-select:none;letter-spacing:.02em;
+}
+.pill:hover{border-color:var(--accent);color:var(--accent);background:var(--accent-glow);}
+.pill.active{
+  background:var(--accent-glow);border-color:var(--accent);color:var(--accent);
+  box-shadow:0 0 12px var(--accent-glow);
+}
+
+/* RECOMMEND BUTTON */
+.rec-btn{
+  display:flex;align-items:center;gap:6px;margin-left:auto;
+  padding:6px 16px;border-radius:999px;font-size:11px;font-weight:500;
+  cursor:pointer;border:1px solid var(--accent-dim);
+  background:rgba(76,61,143,0.2);color:var(--accent);
+  transition:all .2s;white-space:nowrap;letter-spacing:.02em;
+}
+.rec-btn:hover{background:rgba(76,61,143,0.4);border-color:var(--accent);box-shadow:0 0 16px var(--accent-glow);}
+.rec-btn svg{width:13px;height:13px;fill:none;stroke:currentColor;stroke-width:1.8;}
+
+/* SECTION LABELS */
+.section-label{
+  display:flex;align-items:center;gap:12px;
+  font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;
+  margin:36px 0 14px;
+}
+.section-label::after{content:'';flex:1;height:1px;background:var(--border);}
+.section-label.lbl-t5{color:var(--gold);}
+.section-label.lbl-t5::after{background:linear-gradient(90deg,var(--gold-dim),transparent);}
+.section-label.lbl-t10{color:#c48a1a;}
+.section-label.lbl-t10::after{background:linear-gradient(90deg,#3a2800,transparent);}
+.section-label.lbl-good{color:#34d399;}
+.section-label.lbl-good::after{background:linear-gradient(90deg,#0d3327,transparent);}
+.section-label.lbl-meh{color:#6b7280;}
+.section-label.lbl-meh::after{background:linear-gradient(90deg,#1f2028,transparent);}
+.section-label.lbl-trash{color:#f87171;}
+.section-label.lbl-trash::after{background:linear-gradient(90deg,#2d1010,transparent);}
+.section-label.lbl-want{color:var(--accent);}
+.section-label.lbl-want::after{background:linear-gradient(90deg,var(--accent-dim),transparent);}
+
+.sub-label{
+  font-size:10px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;
+  margin:20px 0 10px;padding-left:10px;color:var(--text-dim);
+  border-left:2px solid var(--border2);
+}
+.sub-label.sub-action{border-color:#3b82f6;color:#3b6fa0;}
+.sub-label.sub-romance{border-color:#ec4899;color:#8b3060;}
+.sub-label.sub-both{border-color:#8b5cf6;color:#5a3a90;}
+.sub-label.sub-other{border-color:var(--border2);color:var(--text-dim);}
+
+/* GRID */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(148px,1fr));gap:12px;}
+
+/* CARD */
+.card{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:12px;overflow:hidden;
+  transition:border-color .25s,transform .2s,box-shadow .25s;
+  cursor:pointer;position:relative;
+}
+.card:hover{
+  border-color:var(--accent);transform:translateY(-4px);
+  box-shadow:0 8px 32px rgba(0,0,0,0.6),0 0 20px var(--accent-glow);
+}
+/* image wrapper for gradient overlay */
+.card-img-wrap{position:relative;width:100%;}
+.card img{width:100%;aspect-ratio:2/3;object-fit:cover;display:block;background:var(--surface2);}
+/* gradient over bottom of image */
+.card-img-wrap::after{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:40%;
+  background:linear-gradient(to bottom,transparent,rgba(15,15,26,0.7));
+  pointer-events:none;
+}
+.card-placeholder{
+  width:100%;aspect-ratio:2/3;background:var(--surface2);
+  display:flex;align-items:center;justify-content:center;
+  font-size:10px;color:var(--text-dim);text-align:center;padding:8px;
+}
+.card-body{padding:9px 10px 11px;}
+.card-title{font-size:11px;font-weight:600;color:var(--text);line-height:1.35;margin-bottom:5px;}
+.card-rating{display:flex;align-items:center;gap:4px;margin-bottom:6px;}
+.stars{color:var(--gold);font-size:10px;letter-spacing:1.5px;}
+.rating-num{font-size:10px;color:var(--text-muted);font-weight:300;}
+.card-tags{display:flex;flex-wrap:wrap;gap:3px;}
+
+/* TAGS */
+.tag{font-size:9px;padding:2px 7px;border-radius:999px;font-weight:500;letter-spacing:.02em;}
+.tag-rank{background:rgba(245,158,11,0.12);color:var(--gold);border:1px solid rgba(245,158,11,0.25);}
+.tag-romance{background:rgba(236,72,153,0.1);color:#f472b6;border:1px solid rgba(236,72,153,0.2);}
+.tag-action{background:rgba(59,130,246,0.1);color:#60a5fa;border:1px solid rgba(59,130,246,0.2);}
+.tag-isekai{background:rgba(52,211,153,0.1);color:#34d399;border:1px solid rgba(52,211,153,0.2);}
+.tag-comedy{background:rgba(139,92,246,0.1);color:#a78bfa;border:1px solid rgba(139,92,246,0.2);}
+.tag-peak{background:rgba(16,185,129,0.1);color:#10b981;border:1px solid rgba(16,185,129,0.2);}
+.tag-fuller{background:rgba(251,146,60,0.1);color:#fb923c;border:1px solid rgba(251,146,60,0.2);}
+.tag-clips{background:rgba(100,116,139,0.1);color:#94a3b8;border:1px solid rgba(100,116,139,0.2);}
+.tag-unfinished{background:rgba(248,113,113,0.1);color:#f87171;border:1px solid rgba(248,113,113,0.2);}
+
+/* SHOW MORE */
+.card.hidden-card{display:none;}
+.card.hidden-card.revealed{display:block;animation:fadeIn .3s ease;}
+.show-more-btn{
+  grid-column:1/-1;padding:10px;
+  background:var(--surface);border:1px solid var(--border2);border-radius:10px;
+  color:var(--text-muted);font-size:12px;font-weight:500;cursor:pointer;
+  text-align:center;transition:all .2s;margin-top:2px;font-family:inherit;
+}
+.show-more-btn:hover{border-color:var(--accent);color:var(--accent);background:var(--accent-glow);}
+
+/* WANT LIST */
+.want-list{background:var(--surface);border:1px solid var(--border);border-radius:12px;overflow:hidden;}
+.want-item{
+  padding:11px 16px;font-size:13px;color:#7070a0;
+  border-bottom:1px solid var(--border);
+  transition:color .15s,background .15s;
+}
+.want-item:last-child{border-bottom:none;}
+.want-item:hover{color:var(--text);background:var(--surface2);}
+.divider{height:1px;background:var(--border);margin:36px 0 0;}
+
+/* MODAL */
+.modal-wrap{
+  display:none;position:fixed;z-index:9999;
+  width:350px;max-height:85vh;overflow-y:auto;
+  pointer-events:none;
+  /* custom scrollbar */
+  scrollbar-width:thin;scrollbar-color:var(--border2) transparent;
+}
+.modal-wrap::-webkit-scrollbar{width:4px;}
+.modal-wrap::-webkit-scrollbar-track{background:transparent;}
+.modal-wrap::-webkit-scrollbar-thumb{background:var(--border2);border-radius:2px;}
+.modal-wrap.open{display:block;pointer-events:all;}
+.modal{
+  background:rgba(14,14,24,0.96);
+  border:1px solid var(--border2);border-radius:16px;overflow:hidden;
+  box-shadow:0 20px 60px rgba(0,0,0,0.9),0 0 0 1px rgba(167,139,250,0.05);
+  backdrop-filter:blur(20px);
+  animation:fadeUp .2s cubic-bezier(.16,1,.3,1);
+}
+@keyframes fadeUp{from{opacity:0;transform:translateY(8px) scale(.98);}to{opacity:1;transform:translateY(0) scale(1);}}
+@keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
+.modal-top{display:flex;gap:14px;padding:16px;}
+.modal-img{
+  width:88px;flex-shrink:0;border-radius:8px;
+  object-fit:cover;aspect-ratio:2/3;background:var(--surface2);display:block;
+  box-shadow:0 4px 20px rgba(0,0,0,0.6);
+}
+.modal-info{flex:1;min-width:0;}
+.modal-title{font-size:14px;font-weight:600;color:#f0f0ff;margin-bottom:6px;line-height:1.35;}
+.modal-rating{display:flex;align-items:center;gap:6px;margin-bottom:8px;}
+.modal-stars{color:var(--gold);font-size:12px;letter-spacing:1px;}
+.modal-score{font-size:11px;color:var(--text-muted);font-weight:300;}
+.modal-tags{display:flex;flex-wrap:wrap;gap:3px;}
+.modal-divider{height:1px;background:var(--border);margin:0 16px;}
+.modal-body{padding:14px 16px 16px;}
+.modal-sec{
+  font-size:9px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
+  margin-bottom:6px;color:var(--text-dim);
+}
+.modal-sec.sec-notes{margin-top:12px;}
+.modal-summary-text{font-size:12px;color:#7070a0;line-height:1.7;font-weight:300;}
+.modal-note-text{font-size:12px;line-height:1.7;font-style:italic;font-weight:400;}
+.modal-note-none{font-size:12px;color:var(--text-dim);font-style:italic;}
+
+/* enchantment glint on modal */
+.modal{position:relative;}
+.modal::before{
+  content:'';
+  position:absolute;inset:0;z-index:0;border-radius:16px;
+  background:linear-gradient(
+    115deg,
+    transparent 20%,
+    rgba(120,80,255,0.07) 30%,
+    rgba(180,120,255,0.16) 38%,
+    rgba(100,200,255,0.10) 44%,
+    rgba(180,80,255,0.07) 50%,
+    transparent 60%
+  );
+  background-size:250% 100%;
+  animation:glint 3.5s linear infinite;
+  pointer-events:none;
+}
+.modal::after{
+  content:'';
+  position:absolute;inset:0;z-index:0;border-radius:16px;
+  background:linear-gradient(
+    115deg,
+    transparent 30%,
+    rgba(80,160,255,0.05) 45%,
+    rgba(200,100,255,0.09) 52%,
+    rgba(80,220,200,0.06) 58%,
+    transparent 70%
+  );
+  background-size:250% 100%;
+  animation:glint 3.5s linear infinite 1.75s;
+  pointer-events:none;
+}
+/* keep modal content above the glint layers */
+.modal-top,.modal-divider,.modal-body,.modal-close-btn{position:relative;z-index:1;}
+@keyframes glint{
+  0%{background-position:200% 0;}
+  100%{background-position:-50% 0;}
+}
+.modal-close-btn{
+  display:block;width:calc(100% - 32px);margin:0 16px 16px;
+  padding:9px;background:rgba(76,61,143,0.2);
+  border:1px solid var(--accent-dim);border-radius:9px;
+  color:var(--accent);font-size:12px;font-weight:500;cursor:pointer;
+  text-align:center;transition:all .2s;font-family:inherit;
+}
+.modal-close-btn:hover{background:rgba(76,61,143,0.4);box-shadow:0 0 16px var(--accent-glow);}
+
+/* RECOMMEND MODAL */
+.overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.75);z-index:400;align-items:center;justify-content:center;backdrop-filter:blur(4px);}
+.overlay.open{display:flex;}
+.rec-modal{
+  background:rgba(14,14,24,0.98);border:1px solid var(--border2);
+  border-radius:18px;padding:26px;width:100%;max-width:390px;
+  box-shadow:0 24px 80px rgba(0,0,0,0.95);
+  animation:fadeUp .22s cubic-bezier(.16,1,.3,1);
+}
+.rec-modal h2{font-size:17px;font-weight:600;color:#f0f0ff;margin-bottom:4px;}
+.rec-modal p{font-size:12px;color:var(--text-muted);margin-bottom:20px;font-weight:300;}
+.rec-field{margin-bottom:14px;}
+.rec-label-row{display:flex;align-items:center;gap:6px;margin-bottom:6px;}
+.rec-label{font-size:11px;font-weight:600;color:#8080b0;letter-spacing:.04em;}
+.info-icon{
+  width:15px;height:15px;border-radius:50%;background:var(--surface2);
+  border:1px solid var(--border2);color:var(--text-muted);font-size:9px;
+  display:inline-flex;align-items:center;justify-content:center;
+  cursor:help;flex-shrink:0;position:relative;
+}
+.info-icon:hover::after{
+  content:attr(data-tip);position:absolute;left:20px;top:-4px;
+  background:var(--surface2);border:1px solid var(--border2);
+  border-radius:7px;padding:5px 10px;font-size:11px;color:var(--text);
+  white-space:nowrap;z-index:10;pointer-events:none;
+  box-shadow:0 4px 16px rgba(0,0,0,0.5);
+}
+.rec-input{
+  width:100%;background:var(--bg);border:1px solid var(--border2);
+  border-radius:9px;padding:10px 13px;color:var(--text);font-size:13px;
+  outline:none;transition:border-color .2s,box-shadow .2s;font-family:inherit;font-weight:300;
+}
+.rec-input:focus{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-glow);}
+.rec-input::placeholder{color:var(--text-dim);}
+textarea.rec-input{resize:none;height:76px;}
+.rec-actions{display:flex;gap:8px;margin-top:20px;}
+.rec-submit{
+  flex:1;padding:11px;background:rgba(76,61,143,0.25);
+  border:1px solid var(--accent-dim);border-radius:9px;
+  color:var(--accent);font-size:13px;font-weight:500;cursor:pointer;
+  transition:all .2s;font-family:inherit;
+}
+.rec-submit:hover{background:rgba(76,61,143,0.45);box-shadow:0 0 20px var(--accent-glow);}
+.rec-cancel{
+  padding:11px 18px;background:transparent;border:1px solid var(--border2);
+  border-radius:9px;color:var(--text-muted);font-size:13px;cursor:pointer;
+  transition:all .2s;font-family:inherit;
+}
+.rec-cancel:hover{border-color:var(--border2);color:var(--text);}
+.rec-status{font-size:12px;text-align:center;margin-top:10px;min-height:18px;}
+.rec-status.ok{color:#34d399;}
+.rec-status.err{color:#f87171;}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-text">
+    <div class="hero-eyebrow">Personal Rankings</div>
+    <img src="data:image/png;base64,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kvVnZo8Cmsa46tzb9EX2VWduWzu42HUdXebdRyz2ereZuONvF0Djzc12OoZyQerBx2LutlW2q31NFDatXz/BayNoYytdzjmH+f8ABd39R7lM1HVUtbTsqKSohqIJBlskTw5rh3Ecipqai21mBKmratviuaImKu40qZuqnZ9HyZQ5dDojSF71ddYqK10kjoy8CWoc09HC3tLndXV2dZVwJ9Nacnn6eewWqWXOeN9HGXZ8SFsoYoaaFsUMccMTBhrWNDWtHgFGRdGMV5kkyvBEhL0izTiOjb4sxbBbKay2SitNG3hgpIWxM9ZAGMnvPWoa3rb8xlttmm4njpJZPhcwB5hrQWtB8SXH6q7DaBta0zpmnlhpaqK63Meiynp3hzWu/wA7hyAHq5nuVXNSXq4ahvdTeLnL0tVUv4nEdTR1BoHYAMALdrmpRUQO2ieW9mzgjVo9hLXN8RKsJbdvFmuREVLLaF7w1dXCzghqp42/gskIH6l4IsptbjDSe8/Uskkry+V7nvPW5xySvyiLBkyGVtaxgjZV1DWAYDRIQAsc8zkoiy22YSSPoJBBBwR1Fe766uewsfWVDmkYIMriD+tY6Im1uDSZ9aS1wc0kEHII7FkOr65zS11bUkHkQZXfxWMiJtbg0nvCIiwZC9YKiogz0E8sWevgeW59i8kRPAxk9Z6iecgzzySkdXG8ux7V5IiN5GMBZVBcrjQO4qGvqqU+uGVzP2FYqLKbTyjDSawzft1rrBreFuqb2B6hXSfxWFX36+V7S2uvFwqmnrEtS94PtK1qL25pKlh1P5nhRRp5VK+QREWs2BERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAf/Z" alt="MAO icon" style="width:72px;height:72px;border-radius:16px;margin-bottom:12px;display:block;box-shadow:0 4px 24px rgba(0,0,0,0.6);">
+    <div class="hero-title">My Anime Opinion</div>
+    <div class="hero-sub">42 shows &nbsp;·&nbsp; MAL ratings &nbsp;·&nbsp; personal notes</div>
+  </div>
+</div>
+
+<div class="body">
+  <div class="filters-row">
+    <div class="filters" id="filters">
+      <span class="pill active" data-filter="all">All</span>
+      <span class="pill" data-filter="t5">Top 5</span>
+      <span class="pill" data-filter="t10">Top 10</span>
+      <span class="pill" data-filter="romance">Romance</span>
+      <span class="pill" data-filter="action">Action</span>
+      <span class="pill" data-filter="isekai">Isekai</span>
+      <span class="pill" data-filter="comedy">Comedy</span>
+      <span class="pill" data-filter="peak">Peak</span>
+      <span class="pill" data-filter="fuller">Fuller Rec</span>
+      <span class="pill" data-filter="clips">From Clips</span>
+    </div>
+    <button class="rec-btn" id="rec-open-btn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+      Recommend a show
+    </button>
+  </div>
+
+  <div id="main-list"></div>
+  <div id="want-section"></div>
+</div>
+
+<!-- MODAL - outside .body so fixed positioning works cleanly -->
+<div class="modal-wrap" id="modal-wrap">
+  <div class="modal">
+    <div class="modal-top">
+      <img class="modal-img" id="modal-img" src="" alt="">
+      <div class="modal-info">
+        <div class="modal-title" id="modal-title"></div>
+        <div class="modal-rating"><span class="modal-stars" id="modal-stars"></span><span class="modal-score" id="modal-score"></span></div>
+        <div class="modal-tags" id="modal-tags"></div>
+      </div>
+    </div>
+    <div class="modal-divider"></div>
+    <div class="modal-body">
+      <div class="modal-sec sec-summary">About</div>
+      <div class="modal-summary-text" id="modal-summary"></div>
+      <div class="modal-sec sec-notes" id="modal-note-label">My Notes</div>
+      <div id="modal-note"></div>
+    </div>
+    <div class="modal-close-btn" id="modal-close">Close</div>
+  </div>
+</div>
+
+<!-- RECOMMEND OVERLAY -->
+<div class="overlay" id="rec-overlay">
+  <div class="rec-modal">
+    <h2>Recommend a Show</h2>
+    <p>Send me a recommendation and I'll check it out!</p>
+    <div class="rec-field">
+      <div class="rec-label-row"><span class="rec-label">Show Name</span></div>
+      <input class="rec-input" id="rec-name" type="text" placeholder="e.g. Frieren: Beyond Journey's End">
+    </div>
+    <div class="rec-field">
+      <div class="rec-label-row">
+        <span class="rec-label">Viewing Platform</span>
+        <span class="info-icon" data-tip="Where can I watch this show?">?</span>
+      </div>
+      <input class="rec-input" id="rec-platform" type="text" placeholder="e.g. Crunchyroll, Netflix, Funimation">
+    </div>
+    <div class="rec-field">
+      <div class="rec-label-row"><span class="rec-label">Other Information</span></div>
+      <textarea class="rec-input" id="rec-info" placeholder="Why should I watch it? Anything else I should know?"></textarea>
+    </div>
+    <div class="rec-actions">
+      <button class="rec-cancel" id="rec-cancel">Cancel</button>
+      <button class="rec-submit" id="rec-submit">Send Recommendation</button>
+    </div>
+    <div class="rec-status" id="rec-status"></div>
+  </div>
+</div>
+
+<script>
+emailjs.init("Dta6E2zHjZgNSgPY0");
+
+const shows = [{"title": "Attack on Titan", "tags": ["action"], "rank": "T5", "peak": false, "fuller": false, "clips": false, "meh": false, "trash": false, "mal": 9.0, "note": "My first full watch so ofc it's my number one OAT.", "summary": "Humanity lives inside cities surrounded by enormous walls due to Titans, gigantic humanoids that eat people seemingly without reason. When a Titan breaches the wall, young Eren Yeager vows to exterminate them all.", "img": "img/Attack on Titan.jpeg"}, {"title": "Death Note", "tags": ["action"], "rank": "T5", "peak": false, "fuller": false, "clips": true, "meh": false, "trash": false, "mal": 8.6, "note": "Second fav anime OAT.", "summary": "A high school student discovers a supernatural notebook that kills anyone whose name is written in it. He sets out to create a utopia free of criminals, but a genius detective closes in on him.", "img": "img/Death Note.jpeg"}, {"title": "Vinland Saga", "tags": ["action"], "rank": "T5", "peak": false, "fuller": false, "clips": false, "meh": false, "trash": false, "mal": 8.7, "note": "Top 5 anime OAT.", "summary": "Young Thorfinn grows up hearing tales of the legendary land across the ocean. After his father is killed, he joins the crew of the man responsible, seeking revenge while caught in the middle of a brutal war.", "img": "img/Vinland Saga.jpeg"}, {"title": "Cyberpunk: Edgerunners", "tags": ["action", "romance"], "rank": "T5", "peak": false, "fuller": false, "clips": true, "meh": false, "trash": false, "mal": 8.6, "note": "Don't get me started on that fuckass song. 9/10.", "summary": "Set in a dystopian Night City, a street kid tries to survive by becoming an edgerunner — a mercenary outlaw. He takes on a cybernetic implant that slowly drives people insane, all while falling for a daring netrunner.", "img": "img/Cyberpunk Edgerunners.jpeg"}, {"title": "Jujutsu Kaisen", "tags": ["action"], "rank": "T5", "peak": false, "fuller": true, "clips": false, "meh": false, "trash": false, "mal": 8.6, "note": "Peak on peak.", "summary": "After swallowing a cursed object to save his friends, Yuji Itadori becomes the host of a powerful demon. He joins a secret organization of jujutsu sorcerers to collect and destroy all cursed fingers before being executed.", "img": "img/Jujutsu Kaisen.jpeg"}, {"title": "The Quintessential Quintuplets", "tags": ["romance"], "rank": "T5", "peak": false, "fuller": false, "clips": false, "meh": false, "trash": false, "mal": 7.9, "note": "#1 best romance btw.", "summary": "A poor but academically gifted high schooler is hired to tutor five identical quintuplet sisters who are all failing. The story flashes forward to reveal he eventually marries one of them — but which one?", "img": "img/The Quintessential Quintuplets.jpeg"}, {"title": "KonoSuba: God's Blessing on This Wonderful World!", "tags": ["isekai", "comedy"], "rank": "T5", "peak": true, "fuller": true, "clips": false, "meh": false, "trash": false, "mal": 8.2, "note": "Funniest isekai ever.", "summary": "A teenager dies a laughable death and is reincarnated in a fantasy world with a useless goddess, an explosion-obsessed mage, and a masochistic crusader. They're all terrible at their jobs and it's perfect.", "img": "img/KonoSuba God's Blessing on This Wonderful World.jpeg"}, {"title": "Call of the Night", "tags": ["romance"], "rank": "T5", "peak": true, "fuller": false, "clips": true, "meh": false, "trash": false, "mal": 8.1, "note": "Really good romance, prob top 5 romances.", "summary": "A boy who can't sleep starts wandering the city at night and meets a cheerful vampire girl. To become a vampire himself, he must fall in love with her — but genuine feelings are harder to manufacture than he thinks.", "img": "img/Call of the Night.jpeg"}, {"title": "TONIKAWA: Over The Moon For You", "tags": ["romance"], "rank": "T5", "peak": false, "fuller": false, "clips": false, "meh": false, "trash": false, "mal": 8.1, "note": "Really good, prob my second fav romance.", "summary": "A genius student is saved from an accident by a beautiful girl and proposes on the spot. She agrees — on the condition they get married first before dating. Wholesome newlywed life follows.", "img": "img/TONIKAWA Over The Moon For You.jpeg"}, {"title": "Masamune-kun's Revenge", "tags": ["romance"], "rank": "T5", "peak": true, "fuller": false, "clips": false, "meh": false, "trash": false, "mal": 7.0, "note": "Good romance with lots of plot twists. Pretty moving near the end.", "summary": "A chubby kid was cruelly rejected by a rich girl and spent years getting hot to take revenge. He returns to her school to make her fall for him and break her heart — but things get complicated fast.", "img": "img/Masamune-kun's Revenge.jpeg"}, {"title": "You and I Are Polar Opposites", "tags": ["romance", "comedy"], "rank": "T5", "peak": true, "fuller": false, "clips": false, "meh": false, "trash": false, "mal": 8.1, "note": "Funniest newer romance I've seen so far. S2 comes out July 5th.", "summary": "A serious disciplinary committee member and a carefree delinquent are complete opposites — but somehow keep getting pulled into each other's orbit. Their bickering slowly turns into something neither expected.", "img": "img/You and I Are Polar Opposites.jpeg"}, {"title": "Rascal Does Not Dream of Bunny Girl Senpai", "tags": ["romance", "comedy"], "rank": "T10", "peak": false, "fuller": false, "clips": true, "meh": false, "trash": false, "mal": 8.3, "note": "Very good and prob the funniest romcom anime.", "summary": "A high schooler encounters girls suffering from 'Puberty Syndrome' — a phenomenon causing bizarre supernatural experiences tied to adolescent emotions. He helps each one while developing feelings for a sharp-tongued girl.", "img": "img/Rascal Does Not Dream of Bunny Girl Senpai.jpeg"}, {"title": "Chainsaw Man", "tags": ["action", "romance"], "rank": "T10", "peak": false, "fuller": false, "clips": false, "meh": false, "trash": false, "mal": 8.7, "note": "Very good show and movie.", "summary": "Denji, a broke devil hunter, merges with his chainsaw devil dog and gains the ability to sprout chainsaws from his body. He joins a government agency hunting devils and just wants to live a normal life.", "img": "img/Chainsaw Man.jpeg"}, {"title": "The Case Study of Vanitas", "tags": ["action", "romance", "comedy"], "rank": "T10", "peak": true, "fuller": true, "clips": false, "meh": false, "trash": false, "mal": 7.8, "note": "Came for the vampires, stayed for the romance.", "summary": "In a steampunk Paris, a vampire named Noé encounters a quirky human doctor carrying the Book of Vanitas, which he claims can cure cursed vampires. Their odd partnership leads to intrigue, action, and unexpected romance.", "img": "img/The Case Study of Vanitas.jpeg"}, {"title": "Zombieland Saga", "tags": ["comedy"], "rank": "T10", "peak": true, "fuller": false, "clips": true, "meh": false, "trash": false, "mal": 7.9, "note": "First musical comedy I watched. Very good.", "summary": "A zombie idol group made up of legendary girls from different eras of Japanese history is formed by a shady manager to save Saga prefecture. Equal parts absurd comedy and surprisingly heartfelt idol drama.", "img": "img/Zombieland Saga.jpeg"}, {"title": "DAN DA DAN", "tags": ["romance", "action"], "rank": "T10", "peak": true, "fuller": true, "clips": false, "meh": false, "trash": false, "mal": 8.6, "note": "Good romance / shonen-ish anime.", "summary": "A girl who believes in ghosts and a boy who believes in aliens make a bet — and both end up getting haunted. Now they're fighting supernatural enemies together while awkwardly developing feelings for each other.", "img": "img/DAN DA DAN.jpeg"}, {"title": "Zom 100: Bucket List of the Dead", "tags": ["action", "comedy"], "rank": "T10", "peak": true, "fuller": false, "clips": true, "meh": false, "trash": false, "mal": 7.9, "note": "Really good zombie show, def recommend for its comedy.", "summary": "A burned-out office worker wakes up to a zombie apocalypse and realizes he's finally free from his awful job. He decides to make a bucket list of 100 things to do before he becomes a zombie himself.", "img": "img/Zom 100 Bucket List of the Dead.jpeg"}, {"title": "More than a Married Couple, but Not Lovers.", "tags": ["romance"], "rank": "T10", "peak": true, "fuller": false, "clips": false, "meh": false, "trash": false, "mal": 7.5, "note": "Good but way over hyped. I don't really get the Shiori hate.", "summary": "A school program pairs students as fake married couples to practice for adult life. A guy gets paired with the most popular girl instead of his crush — and the more they live together, the more feelings shift.", "img": "img/More than a Married Couple but Not Lovers..jpeg"}, {"title": "Hokkaido Gals Are Super Adorable!", "tags": ["romance"], "rank": "T10", "peak": true, "fuller": false, "clips": true, "meh": false, "trash": false, "mal": 7.5, "note": "Good romance, watched on a whim since I saw one clip on TikTok.", "summary": "A Tokyo boy transfers to snowy Hokkaido and is immediately charmed by the cheerful, fashionable local girls. A sweet slow-burn romance develops between him and the most outgoing girl in class.", "img": "img/Hokkaido Gals Are Super Adorable!.jpeg"}, {"title": "My Dress-Up Darling", "tags": ["romance"], "rank": "T10", "peak": true, "fuller": false, "clips": false, "meh": false, "trash": false, "mal": 8.3, "note": "Blah blah cosplay, blah blah super senior, blah blah all that for a picture!? 9/10 romance.", "summary": "A shy boy who makes traditional dolls gets roped into making costumes for the most popular girl in school, who's secretly a hardcore gamer and cosplayer. They grow incredibly close through their shared passion.", "img": "img/My Dress-Up Darling.jpeg"}, {"title": "Inuyashiki: Last Hero", "tags": ["action"], "rank": "T10", "peak": true, "fuller": false, "clips": true, "meh": false, "trash": false, "mal": 8.0, "note": "Larp show, but good shonen.", "summary": "A middle-aged loser and a teenage boy are both struck by an alien spacecraft and rebuilt as powerful androids. One uses his new body to save lives; the other uses his to take them. Their collision is inevitable.", "img": "img/Inuyashiki Last Hero.jpeg"}, {"title": "Platinum End", "tags": ["romance", "action"], "rank": "T10", "peak": true, "fuller": false, "clips": false, "meh": false, "trash": false, "mal": 6.8, "note": "Good show, would recommend.", "summary": "After attempting suicide, a boy is saved by his guardian angel and granted special powers. He's thrust into a battle royale where 13 god candidates compete to become the next God within 999 days.", "img": "img/Platinum End.jpeg"}, {"title": "The Angel Next Door Spoils Me Rotten", "tags": ["romance"], "rank": "T10", "peak": true, "fuller": true, "clips": false, "meh": false, "trash": false, "mal": 8.0, "note": "Peak. New season just dropped too.", "summary": "The most beautiful and perfect girl at school lives next door to a lonely guy. After he lends her his umbrella, she starts cooking for him and taking care of him — and neither can explain why.", "img": "img/The Angel Next Door Spoils Me Rotten.jpeg"}, {"title": "Our Dating Story: The Experienced You and The Inexperienced Me", "tags": ["romance"], "rank": "T10", "peak": true, "fuller": false, "clips": false, "meh": false, "trash": false, "mal": 7.8, "note": "Very good romance since they get together on the first or second ep.", "summary": "A gal and an average guy end up dating after a misunderstanding. Instead of a will-they-won't-they, it skips straight to the relationship — focusing on how two very different people actually make it work.", "img": "img/Our Dating Story The Experienced You and The Inexperienced Me.jpeg"}, {"title": "Terror in Resonance", "tags": ["action"], "rank": "T10", "peak": true, "fuller": false, "clips": true, "meh": false, "trash": false, "mal": 8.1, "note": "Bro this show is so good. Nice change of pace from romances. Really cool premise.", "summary": "Two mysterious teenagers calling themselves Sphinx carry out a series of bombings across Tokyo, uploading riddles online and daring the police to stop them. A brilliant detective races to unravel who they really are.", "img": "img/Terror in Resonance.jpeg"}, {"title": "Watari-kun's ****** is About to Collapse", "tags": ["romance"], "rank": "T10", "peak": false, "fuller": false, "clips": true, "meh": false, "trash": false, "mal": 7.4, "note": "Nice romance, interesting relationship dynamic. MC is very very stupid though.", "summary": "A popular playboy who juggles multiple girls at once finds his carefully managed love life falling apart when his childhood friend gets involved. A surprisingly self-aware romcom about a guy too dumb for his own schemes.", "img": "img/Watari-kuns is About to Collapse.jpeg"}, {"title": "Lookism", "tags": ["action"], "rank": null, "peak": true, "fuller": false, "clips": true, "meh": false, "trash": false, "mal": 7.9, "note": "Good show for larpers and non-larpers alike.", "summary": "A bullied overweight teen wakes up able to switch between his original body and a new handsome one. He navigates high school and underground street fights, exploring how differently the world treats people based on looks.", "img": "img/Lookism.jpeg"}, {"title": "Obsolete", "tags": ["action"], "rank": null, "peak": true, "fuller": false, "clips": false, "meh": false, "trash": false, "mal": 7.2, "note": "Not really an anime I'd say but it's really cool.", "summary": "Alien merchants arrive on Earth offering to trade mech suits for limestone. Nations and private groups acquire the mechs, and the world's military balance shifts completely. A grounded, realistic take on mech warfare.", "img": "img/Obsolete.jpeg"}, {"title": "Don't Toy with Me, Miss Nagatoro", "tags": ["romance"], "rank": null, "peak": true, "fuller": false, "clips": true, "meh": false, "trash": false, "mal": 7.6, "note": "Very nice, wish it was longer.", "summary": "A shy loner who loves drawing gets found out by a younger underclassman who starts teasing him relentlessly. What starts as bullying slowly reveals itself as her clumsy way of getting close to the only person she finds interesting.", "img": "img/Don't Toy with Me Miss Nagatoro.jpeg"}, {"title": "Assassination Classroom", "tags": ["action"], "rank": null, "peak": false, "fuller": false, "clips": true, "meh": false, "trash": false, "unfinished": true, "mal": 8.1, "note": "Too much inner dialogue but still good.", "summary": "A powerful creature destroys most of the moon and threatens to do the same to Earth — unless a class of misfit students can assassinate him by graduation. The catch: he's their homeroom teacher and genuinely cares about them.", "img": "img/Assassination Classroom.jpeg"}, {"title": "Handyman Saitou in Another World", "tags": ["isekai", "comedy"], "rank": null, "peak": false, "fuller": false, "clips": true, "meh": false, "trash": false, "mal": 7.8, "note": "Pretty good isekai, prob the second funniest isekai.", "summary": "An ordinary handyman is transported to a fantasy world where his repair skills turn out to be just as valuable as magic or swordsmanship. A wholesome, funny isekai that celebrates practical everyday people.", "img": "img/Handyman Saitou in Another World.jpeg"}, {"title": "Hellsing Ultimate", "tags": ["action"], "rank": null, "peak": false, "fuller": false, "clips": true, "meh": false, "trash": false, "mal": 8.5, "note": "Saw the edits of Alucard aura farming and knew I had to watch it. Pretty good vampire show.", "summary": "The Hellsing Organization defends England from vampires and ghouls using their most powerful weapon: Alucard, the world's most terrifying vampire, who fights on humanity's side.", "img": "img/Hellsing Ultimate.jpeg"}, {"title": "A Couple of Cuckoos", "tags": ["romance"], "rank": null, "peak": true, "fuller": false, "clips": false, "meh": false, "trash": false, "mal": 7.1, "note": "Holy shit, why do so many girls love him bro. Pass the ball!", "summary": "Two teens discover they were accidentally switched at birth and their families suggest they get engaged. The problem: he already likes someone else, she's trying to escape an arranged marriage, and feelings keep getting messier.", "img": "img/A Couple of Cuckoos.jpeg"}, {"title": "I Made a Friend Who is a Gyaru and She is Cute", "tags": ["romance"], "rank": null, "peak": true, "fuller": false, "clips": false, "meh": false, "trash": false, "mal": 7.6, "note": "So far it's good, still coming out.", "summary": "A loner who gave up on socializing is approached by the second most popular girl in school, who just wants a real friend with no ulterior motives. An honest, low-drama friendship-to-romance story.", "img": "img/I made friends with the second prettiest girl in my class.jpeg"}, {"title": "Gal & Otaku Can't Understand Each Other", "tags": ["romance"], "rank": null, "peak": true, "fuller": false, "clips": false, "meh": false, "trash": false, "mal": 7.7, "note": "Really new, really good so far.", "summary": "The most popular gal in school befriends a nerdy otaku and starts getting drawn into his hobby world. A surprisingly sweet romance about two people from completely different social worlds finding common ground.", "img": "img/Gals can't be kind to Otaku.jpeg"}, {"title": "Tomo-chan Is a Girl!", "tags": ["romance", "comedy"], "rank": null, "peak": false, "fuller": false, "clips": false, "meh": true, "trash": false, "mal": 7.7, "note": "Its a Tomboy romance and it was alright. There wasn't much to it to be honest, it was basically just a normal romance plot. Some of the reactions were pretty funny though.", "summary": "A tough, tomboyish girl has been in love with her childhood best friend forever — but he only sees her as a guy. She's determined to make him see her as a woman while absolutely refusing to change who she is.", "img": "img/Tomo-chan Is a Girl!.jpeg"}, {"title": "Horimiya", "tags": ["romance"], "rank": null, "peak": false, "fuller": false, "clips": false, "meh": false, "trash": false, "mal": 8.2, "note": "Pretty good romance. They actually crack btw.", "summary": "A popular girl and a quiet mysterious boy discover each other's hidden sides outside of school. They quickly become close and, unlike most romance anime, actually get together early — then deal with what comes next.", "img": "img/Horimiya.jpeg"}, {"title": "MF Ghost", "tags": ["action", "romance"], "rank": null, "peak": false, "fuller": false, "clips": false, "meh": true, "trash": false, "unfinished": true, "mal": 7.3, "note": "Car show I have a hard time watching cuz it's just all racing, nothing else besides a small romance.", "summary": "Set in a near-future where self-driving cars are the norm, a young driver returns to Japan to compete in an illegal mountain pass race. A spiritual successor to Initial D, heavy on racing and light on everything else.", "img": "img/MF Ghost.jpeg"}, {"title": "And You Thought There Is Never a Girl Online?", "tags": ["isekai", "comedy", "romance"], "rank": null, "peak": false, "fuller": false, "clips": false, "meh": true, "trash": false, "mal": 7.0, "note": "It's like an off brand Konosuba but with more fan service.", "summary": "A guy who got burned by a girl online swears never to trust female players again — then discovers his in-game wife is actually a girl in real life. Their entire gaming guild turns out to be classmates.", "img": "img/And You Thought There Is Never a Girl Online.jpeg"}, {"title": "I Got a Cheat Skill in Another World and Became Unrivaled in the Real World, Too", "tags": ["isekai", "romance"], "rank": null, "peak": false, "fuller": false, "clips": false, "meh": true, "trash": false, "mal": 6.5, "note": "I liked the story but the season ended abruptly. S2 is apparently on the way.", "summary": "A bullied boy finds a door to another world and gains godlike skills. He becomes overpowered in the fantasy world and, thanks to a physical transformation, suddenly popular back in the real one too.", "img": "img/I Got a Cheat Skill in Another World and Became Unrivaled in the Real World Too.jpeg"}, {"title": "Medaka Kuroiwa Is Impervious to My Charms", "tags": ["romance"], "rank": null, "peak": false, "fuller": false, "clips": false, "meh": true, "trash": false, "mal": 7.2, "note": "Lowkey kinda mid.", "summary": "The most popular girl in school has never failed to get a guy's attention — until she meets a classmate raised by monks who is completely immune to feminine charms. His indifference drives her crazy and somehow makes her fall first.", "img": "img/Medaka Kuroiwa Is Impervious to My Charms.jpeg"}, {"title": "Komi Can't Communicate", "tags": ["romance"], "rank": null, "peak": false, "fuller": false, "clips": false, "meh": false, "trash": true, "unfinished": true, "mal": 7.3, "note": "Fuck this show, may come back to it.", "summary": "The most beautiful girl in school has extreme social anxiety and can't speak to anyone. A kind boy sits next to her and helps her on her goal of making 100 friends. Sweet premise, slow execution.", "img": "img/Komi Can't Communicate.jpeg"}, {"title": "I Want to End This Love Game", "tags": ["romance"], "rank": null, "peak": true, "fuller": false, "clips": false, "meh": false, "trash": false, "mal": 7.5, "note": "This shows central plot is interesting and it actually works really well and its very intriguing.", "summary": "A girl who has never experienced genuine love and a boy who uses romance as a game cross paths. What starts as manipulation slowly turns into something neither of them planned for.", "img": "img/I Want to End This Love Game.jpeg"}, {"title": "Haibara's Teenage New Game+", "tags": ["romance"], "rank": null, "peak": true, "fuller": false, "clips": false, "meh": false, "trash": false, "mal": 7.8, "note": "I thought it was kind of similar to \"I got a cheat skill\" with the way the mc transforms and lives a completely different life. Overall different in most other ways. Good show.", "summary": "A boy gets a chance to redo his teenage years with all his memories intact. This time around, armed with experience and a completely different appearance, he sets out to change the things he regretted most — including the girl he never got close to.", "img": "img/Haibara's Teenage New Game+.jpeg"}];
+
+function stars(n){const r=Math.round(n/2);return"★".repeat(r)+"☆".repeat(5-r);}
+
+function noteColor(rank,tags){
+  return "#f0a030";
+}
+
+function buildTags(s){
+  let t="";
+  if(s.rank==="T5") t+=`<span class="tag tag-rank">Top 5</span>`;
+  else if(s.rank==="T10") t+=`<span class="tag tag-rank">Top 10</span>`;
+  if(s.tags.includes("romance")) t+=`<span class="tag tag-romance">Romance</span>`;
+  if(s.tags.includes("action")) t+=`<span class="tag tag-action">Action</span>`;
+  if(s.tags.includes("isekai")) t+=`<span class="tag tag-isekai">Isekai</span>`;
+  if(s.tags.includes("comedy")) t+=`<span class="tag tag-comedy">Comedy</span>`;
+  if(s.peak) t+=`<span class="tag tag-peak">Peak</span>`;
+  if(s.fuller) t+=`<span class="tag tag-fuller">Fuller Rec</span>`;
+  if(s.clips) t+=`<span class="tag tag-clips">From Clips</span>`;
+  if(s.unfinished) t+=`<span class="tag tag-unfinished">Unfinished</span>`;
+  return t;
+}
+
+function card(s,idx,total){
+  const hidden = idx >= 3 && total > 3;
+  const imgEl = `<div class="card-img-wrap"><img src="${s.img}" alt="${s.title}" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+<div class="card-placeholder" style="display:none">${s.title}</div></div>`;
+  return `<div class="card${hidden?" hidden-card":""}" data-title="${s.title.replace(/"/g,'&quot;')}">
+${imgEl}
+<div class="card-body">
+<div class="card-title">${s.title}</div>
+<div class="card-rating"><span class="stars">${stars(s.mal)}</span><span class="rating-num">${s.mal.toFixed(1)}</span></div>
+<div class="card-tags">${buildTags(s)}</div>
+</div></div>`;
+}
+
+function grid(items){
+  if(!items.length) return "";
+  const cards = items.map((s,i)=>card(s,i,items.length)).join("");
+  const hasMore = items.length > 3;
+  const btn = hasMore ? `<div class="show-more-btn" data-showing="false">Show ${items.length-3} more ▾</div>` : "";
+  return `<div class="grid">${cards}${btn}</div>`;
+}
+
+function sectionLabel(text,cls){
+  return `<div class="section-label ${cls}">${text}</div>`;
+}
+
+function rankedBlock(rank,rankLabel,rankCls,items){
+  const ranked=items.filter(s=>s.rank===rank);
+  if(!ranked.length) return "";
+  const ao=ranked.filter(s=>s.tags.includes("action")&&!s.tags.includes("romance"));
+  const ro=ranked.filter(s=>s.tags.includes("romance")&&!s.tags.includes("action"));
+  const bo=ranked.filter(s=>s.tags.includes("action")&&s.tags.includes("romance"));
+  const ot=ranked.filter(s=>!s.tags.includes("action")&&!s.tags.includes("romance"));
+  let h=sectionLabel(rankLabel,rankCls);
+  if(ao.length) h+=`<div class="sub-label sub-action">Action</div>${grid(ao)}`;
+  if(ro.length) h+=`<div class="sub-label sub-romance">Romance</div>${grid(ro)}`;
+  if(bo.length) h+=`<div class="sub-label sub-both">Action & Romance</div>${grid(bo)}`;
+  if(ot.length) h+=`<div class="sub-label sub-other">Other</div>${grid(ot)}`;
+  return h;
+}
+
+function simpleBlock(label,cls,items){
+  if(!items.length) return "";
+  return sectionLabel(label,cls)+grid(items);
+}
+
+function render(filter){
+  let f=shows;
+  if(filter==="t5") f=shows.filter(s=>s.rank==="T5");
+  else if(filter==="t10") f=shows.filter(s=>s.rank==="T5"||s.rank==="T10");
+  else if(filter==="romance") f=shows.filter(s=>s.tags.includes("romance"));
+  else if(filter==="action") f=shows.filter(s=>s.tags.includes("action"));
+  else if(filter==="isekai") f=shows.filter(s=>s.tags.includes("isekai"));
+  else if(filter==="comedy") f=shows.filter(s=>s.tags.includes("comedy"));
+  else if(filter==="peak") f=shows.filter(s=>s.peak);
+  else if(filter==="fuller") f=shows.filter(s=>s.fuller);
+  else if(filter==="clips") f=shows.filter(s=>s.clips);
+
+  const good=f.filter(s=>!s.rank&&!s.meh&&!s.trash);
+  const meh=f.filter(s=>s.meh);
+  const trash=f.filter(s=>s.trash);
+
+  let html="";
+  if(f.some(s=>s.rank==="T5")) html+=rankedBlock("T5","Top 5","lbl-t5",f);
+  if(f.some(s=>s.rank==="T10")) html+=rankedBlock("T10","Top 10","lbl-t10",f);
+  if(good.length) html+=simpleBlock("Good Watches","lbl-good",good);
+  if(meh.length) html+=simpleBlock("Meh","lbl-meh",meh);
+  if(trash.length) html+=simpleBlock("Trash","lbl-trash",trash);
+  document.getElementById("main-list").innerHTML=html;
+
+  const ws=document.getElementById("want-section");
+  ws.innerHTML=filter==="all"?`
+<div class="divider"></div>
+${sectionLabel("Want to Watch","lbl-want")}
+<div class="want-list">${["Darwins Game","86: Eighty-Six","Arifureta: From Commonplace to World's Strongest","Erased","From Me to You (Netflix)","Parasyte: The Maxim"].map(t=>`<div class="want-item">${t}</div>`).join("")}</div>
+${sectionLabel("Maybe Someday","lbl-want")}
+<div class="want-list">${["Fullmetal Alchemist: Brotherhood","Mob Psycho 100","A Silent Voice","Hell's Paradise","Re:ZERO -Starting Life in Another World-"].map(t=>`<div class="want-item">${t}</div>`).join("")}</div>`:"";
+
+  closeModal();
+  bindShowMore();
+}
+
+function bindShowMore(){
+  document.querySelectorAll(".show-more-btn").forEach(btn=>{
+    btn.addEventListener("click",function(){
+      const grid=this.parentElement;
+      const hidden=grid.querySelectorAll(".hidden-card");
+      const showing=this.dataset.showing==="true";
+      if(!showing){
+        hidden.forEach(c=>{c.classList.add("revealed");});
+        this.dataset.showing="true";
+        this.textContent="Hide ▴";
+      } else {
+        hidden.forEach(c=>{c.classList.remove("revealed");});
+        this.dataset.showing="false";
+        this.textContent=`Show ${hidden.length} more ▾`;
+      }
+    });
+  });
+}
+
+// ── MODAL ──────────────────────────────────────────────
+const modalWrap=document.getElementById("modal-wrap");
+
+function closeModal(){
+  modalWrap.classList.remove("open");
+}
+
+function positionModal(cardEl){
+  const rect = cardEl.getBoundingClientRect();
+  const mw = 340;
+  const margin = 10;
+  const vh = window.innerHeight;
+  
+  // Prefer right side, fallback to left
+  let left = rect.right + margin;
+  if(left + mw > window.innerWidth - margin){
+    left = rect.left - mw - margin;
+  }
+  if(left < margin) left = margin;
+  
+  // Try to align top with card top, but keep in viewport
+  let top = rect.top;
+  // After modal renders we'll check height, for now estimate max
+  const estimatedHeight = Math.min(500, vh - 20);
+  if(top + estimatedHeight > vh - margin){
+    top = Math.max(margin, vh - estimatedHeight - margin);
+  }
+  if(top < margin) top = margin;
+  
+  modalWrap.style.left = left + "px";
+  modalWrap.style.top = top + "px";
+}
+
+document.addEventListener("click", e=>{
+  // Ignore show-more button clicks
+  if(e.target.closest(".show-more-btn")) return;
+  
+  const c = e.target.closest(".card");
+  if(!c){
+    // Click outside any card or modal — close modal
+    if(!e.target.closest(".modal-wrap")) closeModal();
+    return;
+  }
+  
+  const title = c.dataset.title;
+  const s = shows.find(x=>x.title===title);
+  if(!s) return;
+  
+  // Populate modal
+  document.getElementById("modal-img").src = s.img;
+  document.getElementById("modal-img").alt = s.title;
+  document.getElementById("modal-title").textContent = s.title;
+  document.getElementById("modal-stars").textContent = stars(s.mal);
+  document.getElementById("modal-score").textContent = `MAL: ${s.mal.toFixed(1)} / 10`;
+  document.getElementById("modal-tags").innerHTML = buildTags(s);
+  document.getElementById("modal-summary").textContent = s.summary;
+
+  const noteLabel = document.getElementById("modal-note-label");
+  const color = noteColor(s.rank, s.tags);
+  noteLabel.style.color = color;
+  noteLabel.style.borderLeft = `2px solid ${color}`;
+  noteLabel.style.paddingLeft = "8px";
+
+  const noteEl = document.getElementById("modal-note");
+  if(s.note){
+    noteEl.innerHTML = `<div class="modal-note-text" style="color:${color}">${s.note}</div>`;
+  } else {
+    noteEl.innerHTML = `<div class="modal-note-none">No notes added yet.</div>`;
+  }
+
+  // If clicking same card while modal open, close it
+  if(modalWrap.classList.contains("open") && modalWrap._activeCard === c){
+    closeModal();
+    return;
+  }
+  
+  modalWrap._activeCard = c;
+  
+  // Position and show
+  positionModal(c);
+  modalWrap.classList.add("open");
+});
+
+document.getElementById("modal-close").addEventListener("click", closeModal);
+
+// Reposition on scroll/resize
+window.addEventListener("scroll", ()=>{
+  if(modalWrap.classList.contains("open") && modalWrap._activeCard){
+    positionModal(modalWrap._activeCard);
+  }
+}, {passive:true});
+
+// ── FILTERS ──────────────────────────────────────────────
+document.getElementById("filters").addEventListener("click",e=>{
+  if(!e.target.dataset.filter) return;
+  document.querySelectorAll(".pill").forEach(p=>p.classList.remove("active"));
+  e.target.classList.add("active");
+  render(e.target.dataset.filter);
+});
+
+// ── RECOMMEND ────────────────────────────────────────────
+const overlay=document.getElementById("rec-overlay");
+document.getElementById("rec-open-btn").addEventListener("click",()=>overlay.classList.add("open"));
+document.getElementById("rec-cancel").addEventListener("click",()=>{overlay.classList.remove("open");document.getElementById("rec-status").textContent="";});
+overlay.addEventListener("click",e=>{if(e.target===overlay){overlay.classList.remove("open");document.getElementById("rec-status").textContent="";}});
+
+document.getElementById("rec-submit").addEventListener("click",async()=>{
+  const name=document.getElementById("rec-name").value.trim();
+  const platform=document.getElementById("rec-platform").value.trim();
+  const info=document.getElementById("rec-info").value.trim();
+  const status=document.getElementById("rec-status");
+  if(!name){status.className="rec-status err";status.textContent="Please enter a show name.";return;}
+  const btn=document.getElementById("rec-submit");
+  btn.textContent="Sending...";btn.disabled=true;
+  try{
+    await emailjs.send("service_h5lm8mt","template_s18adkp",{
+      show_name:name,
+      platform:platform||"Not specified",
+      other_info:info||"None",
+      to_email:"innocentsandwichthe1st@gmail.com"
+    });
+    status.className="rec-status ok";
+    status.textContent="✓ Recommendation sent! Thanks!";
+    document.getElementById("rec-name").value="";
+    document.getElementById("rec-platform").value="";
+    document.getElementById("rec-info").value="";
+    setTimeout(()=>{overlay.classList.remove("open");status.textContent="";},2000);
+  }catch(err){
+    status.className="rec-status err";
+    status.textContent="Failed to send. Please try again.";
+  }
+  btn.textContent="Send Recommendation";btn.disabled=false;
+});
+
+render("all");
+</script>
+</body>
+</html>
