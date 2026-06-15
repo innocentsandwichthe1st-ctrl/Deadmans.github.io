@@ -109,6 +109,46 @@ body::after{
 .rec-btn:hover{background:rgba(76,61,143,0.4);border-color:var(--accent);box-shadow:0 0 16px var(--accent-glow);}
 .rec-btn svg{width:13px;height:13px;fill:none;stroke:currentColor;stroke-width:1.8;}
 
+/* SEARCH BAR */
+.search-wrap{position:relative;flex-shrink:0;min-width:180px;}
+.search-input{
+  width:100%;background:var(--surface);border:1px solid var(--border2);
+  border-radius:999px;padding:7px 14px 7px 32px;color:var(--text);
+  font-size:12px;outline:none;font-family:inherit;transition:border-color .2s;
+}
+.search-input:focus{border-color:var(--accent);}
+.search-input::placeholder{color:var(--text-dim);}
+.search-icon{
+  position:absolute;left:11px;top:50%;transform:translateY(-50%);
+  width:13px;height:13px;color:var(--text-muted);pointer-events:none;
+}
+
+/* CHANGE LOG */
+.changelog-btn{
+  display:inline-flex;align-items:center;gap:5px;padding:5px 14px;
+  border-radius:999px;font-size:11px;font-weight:500;
+  border:1px solid var(--border2);background:var(--surface);
+  color:var(--text-muted);text-decoration:none;cursor:pointer;
+  transition:all .2s;font-family:inherit;
+}
+.changelog-btn:hover{border-color:var(--accent);color:var(--accent);background:var(--accent-glow);}
+.changelog-modal{max-height:80vh;display:flex;flex-direction:column;}
+.changelog-list{overflow-y:auto;margin:4px -4px 0;padding:0 4px;flex:1;}
+.changelog-entry{margin-bottom:18px;}
+.changelog-date{
+  font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--accent);margin-bottom:8px;
+}
+.changelog-entry ul{list-style:none;padding:0;}
+.changelog-entry li{
+  font-size:12px;color:#8888b8;line-height:1.6;font-weight:300;
+  padding-left:14px;position:relative;margin-bottom:4px;
+}
+.changelog-entry li::before{
+  content:'';position:absolute;left:0;top:8px;width:5px;height:5px;
+  border-radius:50%;background:var(--accent-dim);
+}
+
 /* SECTION LABELS */
 .section-label{
   display:flex;align-items:center;gap:12px;
@@ -416,16 +456,23 @@ textarea.rec-input{resize:none;height:76px;}
       <span class="pill" data-filter="fuller">Fuller Rec</span>
       <span class="pill" data-filter="clips">From Clips</span>
     </div>
+    <div class="search-wrap">
+      <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+      <input type="text" class="search-input" id="search-input" placeholder="Search shows...">
+    </div>
     <button class="rec-btn" id="rec-open-btn">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
       Recommend a show
     </button>
   </div>
-  <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
+  <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;flex-wrap:wrap;">
     <span style="font-size:11px;color:var(--text-muted);font-style:italic;">Not sure what to recommend?</span>
     <a href="#watch-queue-anchor" onclick="openAndScrollQueue()" style="display:inline-flex;align-items:center;gap:5px;padding:5px 14px;border-radius:999px;font-size:11px;font-weight:500;border:1px solid var(--accent-dim);background:var(--accent-glow);color:var(--accent);text-decoration:none;transition:all .2s;">
       Jump to the Queue! ↓
     </a>
+    <button class="changelog-btn" id="changelog-open-btn" style="margin-left:auto;">
+      📋 Change Log
+    </button>
   </div>
 
   <div id="main-list"></div>
@@ -482,6 +529,18 @@ textarea.rec-input{resize:none;height:76px;}
       <button class="rec-submit" id="rec-submit">Send Recommendation</button>
     </div>
     <div class="rec-status" id="rec-status"></div>
+  </div>
+</div>
+
+<!-- CHANGE LOG OVERLAY -->
+<div class="overlay" id="changelog-overlay">
+  <div class="rec-modal changelog-modal">
+    <h2>Change Log</h2>
+    <p>Updates and improvements to the site over time.</p>
+    <div class="changelog-list" id="changelog-list"></div>
+    <div class="rec-actions">
+      <button class="rec-cancel" id="changelog-close" style="flex:1;">Close</button>
+    </div>
   </div>
 </div>
 
@@ -556,7 +615,11 @@ function simpleBlock(label,cls,items){
   return sectionLabel(label,cls)+grid(items);
 }
 
+let currentFilter = "all";
+let searchQuery = "";
+
 function render(filter){
+  currentFilter = filter;
   let f=shows;
   if(filter==="t5") f=shows.filter(s=>s.rank==="T5");
   else if(filter==="t10") f=shows.filter(s=>s.rank==="T5"||s.rank==="T10");
@@ -568,6 +631,8 @@ function render(filter){
   else if(filter==="fuller") f=shows.filter(s=>s.fuller);
   else if(filter==="clips") f=shows.filter(s=>s.clips);
 
+  if(searchQuery) f=f.filter(s=>s.title.toLowerCase().includes(searchQuery));
+
   const good=f.filter(s=>!s.rank&&!s.meh&&!s.trash);
   const meh=f.filter(s=>s.meh);
   const trash=f.filter(s=>s.trash);
@@ -578,6 +643,7 @@ function render(filter){
   if(good.length) html+=simpleBlock("Good Watches","lbl-good",good);
   if(meh.length) html+=simpleBlock("Meh","lbl-meh",meh);
   if(trash.length) html+=simpleBlock("Trash","lbl-trash",trash);
+  if(!f.length) html=`<div style="text-align:center;padding:50px 0;color:var(--text-muted);font-size:13px;">No shows found${searchQuery?` for "${searchQuery}"`:""}.</div>`;
   document.getElementById("main-list").innerHTML=html;
 
   const queue = [{"title":"86: Eighty-Six","priority":"sure","why":"Heard it has one of the best stories in recent anime. Mecha with serious themes about discrimination and war — apparently hits hard emotionally."},{"title":"Arifureta: From Commonplace to World's Strongest","priority":"sure","why":"Isekai where the MC goes from weakest to most overpowered after being betrayed. Dark tone compared to most isekai."},{"title":"Erased","priority":"sure","why":"Time travel mystery where the MC goes back in time to prevent a murder. Supposed to be a really gripping watch."},{"title":"Parasyte: The Maxim","priority":"sure","why":"Aliens take over human bodies and the MC ends up with one in his hand. Looks like a really unique action/horror concept."},{"title":"Hell's Paradise","priority":"sure","why":"Deadly criminals sent to a mysterious island that might be paradise or hell. High action, dark tone, great animation."},{"title":"Fullmetal Alchemist: Brotherhood","priority":"fence","why":"Widely considered the greatest anime ever made. Two brothers use alchemy and pay a terrible price. Might be a long watch but supposedly worth every episode."},{"title":"Mob Psycho 100","priority":"fence","why":"From the creator of One Punch Man. A kid with insane psychic powers just wants to be normal. Heard the animation is insane."},{"title":"A Silent Voice","priority":"future","why":"A movie about a boy who bullied a deaf girl trying to make amends. Supposed to be emotional but sounds heavy."},{"title":"Re:ZERO","priority":"future","why":"Isekai where the MC dies and respawns. Apparently very dark and psychological compared to most isekai."}];
@@ -800,6 +866,53 @@ function toggleQueue(i){
   const item = document.getElementById("qi-"+i);
   item.classList.toggle("open");
 }
+
+// ── SEARCH ──────────────────────────────────────────────
+document.getElementById("search-input").addEventListener("input", e=>{
+  searchQuery = e.target.value.trim().toLowerCase();
+  render(currentFilter);
+});
+
+// ── CHANGE LOG ───────────────────────────────────────────
+const changelog = [
+  {date:"June 2026", changes:[
+    "Added a search bar to quickly find shows by title.",
+    "Added this Change Log so updates to the site are easy to track.",
+    "Added Solo Leveling, Devil May Cry, Pseudo Harem, From Me to You, The Girl I Like Forgot Her Glasses, and Kaguya-sama: Love Is War.",
+    "Added The Fragrant Flower Blooms with Dignity, My Wife Has No Emotion, My Tiny Senpai, Behind the Supermarket Smoking with You, and Black Lagoon.",
+    "Moved Hellsing Ultimate and Kaguya-sama: Love Is War into the Top 5.",
+    "Added a 'Notes subject to change' disclaimer for unfinished shows.",
+    "Refreshed the background with a subtle dot-grid and ambient glow."
+  ]},
+  {date:"May 2026", changes:[
+    "Added Darwin's Game and Can a Boy-Girl Friendship Survive? to the list.",
+    "Combined the Want to Watch and Maybe Someday lists into one collapsible Watch Queue with priority colors and 'why' blurbs.",
+    "Added a 'Jump to the Queue!' shortcut button.",
+    "Added a disclaimer to the recommendation form asking people to check the Watch Queue first.",
+    "Added a name field to the recommendation form.",
+    "Added the site icon/favicon and embedded background art.",
+    "Gave the whole site a cinematic dark redesign with glowing accents and an animated 'enchantment glint' effect on the notes popup."
+  ]},
+  {date:"Earlier", changes:[
+    "Initial launch of My Anime Opinion with the full watched list, ratings, and personal notes.",
+    "Added the recommend-a-show feature with email notifications.",
+    "Fixed notes popup positioning so it reliably appears for every show."
+  ]}
+];
+
+function renderChangelog(){
+  document.getElementById("changelog-list").innerHTML = changelog.map(entry => `
+    <div class="changelog-entry">
+      <div class="changelog-date">${entry.date}</div>
+      <ul>${entry.changes.map(c=>`<li>${c}</li>`).join("")}</ul>
+    </div>`).join("");
+}
+renderChangelog();
+
+const changelogOverlay = document.getElementById("changelog-overlay");
+document.getElementById("changelog-open-btn").addEventListener("click", ()=>changelogOverlay.classList.add("open"));
+document.getElementById("changelog-close").addEventListener("click", ()=>changelogOverlay.classList.remove("open"));
+changelogOverlay.addEventListener("click", e=>{if(e.target===changelogOverlay) changelogOverlay.classList.remove("open");});
 
 render("all");
 </script>
